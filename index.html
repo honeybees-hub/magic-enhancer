@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,49 +10,77 @@
     <meta name="application-name" content="Inbondz">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Google Fonts -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #475569; }
 
-        .slider-handle { cursor: ew-resize; }
-        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        .slider-handle {
+            cursor: ew-resize;
+        }
+
         /* Loading Animation */
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 15px rgba(99, 102, 241, 0.3); }
-            50% { box-shadow: 0 0 25px rgba(99, 102, 241, 0.6); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(99, 102, 241, 0.6);
+            }
         }
     </style>
 </head>
+
 <body class="bg-slate-950 text-slate-200 selection:bg-indigo-500/30 overflow-x-hidden min-h-screen">
 
     <!-- Background Ambience -->
     <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-violet-900/20 rounded-full blur-[128px]"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-indigo-900/20 rounded-full blur-[128px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-indigo-900/20 rounded-full blur-[128px]">
+        </div>
     </div>
 
     <div class="max-w-5xl mx-auto px-6 py-12">
-        
+
         <!-- Header -->
         <div class="text-center mb-12 space-y-4">
-            <div class="inline-flex items-center justify-center p-3 rounded-2xl bg-slate-900/50 border border-slate-800 backdrop-blur-sm mb-4">
+            <div
+                class="inline-flex items-center justify-center p-3 rounded-2xl bg-slate-900/50 border border-slate-800 backdrop-blur-sm mb-4">
                 <i data-lucide="sparkles" class="text-indigo-400 mr-2 w-5 h-5"></i>
                 <span class="text-sm font-semibold tracking-wide text-indigo-300 uppercase">Magic Image Enhancer</span>
             </div>
             <h1 class="text-5xl md:text-6xl font-bold text-white tracking-tight">
                 Make your photos <br />
-                <span class="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Crystal Clear</span>
+                <span class="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Crystal
+                    Clear</span>
             </h1>
             <p class="text-slate-400 text-lg max-w-lg mx-auto">
                 Upscale, denoise, and sharpen your images instantly right in your browser. No sign-up required.
@@ -59,17 +88,20 @@
         </div>
 
         <!-- Main Interface -->
-        <div class="bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-3xl shadow-2xl overflow-hidden min-h-[600px] flex flex-col md:flex-row relative">
-            
+        <div
+            class="bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-3xl shadow-2xl overflow-hidden min-h-[600px] flex flex-col md:flex-row relative">
+
             <!-- Left Panel: Controls -->
-            <div class="w-full md:w-80 border-b md:border-b-0 md:border-r border-slate-800 p-6 flex flex-col gap-8 z-20 bg-slate-900/80">
-                
+            <div
+                class="w-full md:w-80 border-b md:border-b-0 md:border-r border-slate-800 p-6 flex flex-col gap-8 z-20 bg-slate-900/80">
+
                 <!-- 1. Upload Section -->
                 <div class="space-y-4">
                     <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Source Image</h3>
-                    
+
                     <!-- Upload Box -->
-                    <label id="upload-box" class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-slate-700 rounded-2xl cursor-pointer hover:border-indigo-500 hover:bg-slate-800/50 transition-all group">
+                    <label id="upload-box"
+                        class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-slate-700 rounded-2xl cursor-pointer hover:border-indigo-500 hover:bg-slate-800/50 transition-all group">
                         <div class="bg-slate-800 p-2 rounded-lg mb-2 group-hover:scale-110 transition-transform">
                             <i data-lucide="upload" class="text-indigo-400 w-5 h-5"></i>
                         </div>
@@ -78,7 +110,8 @@
                     </label>
 
                     <!-- File Info (Hidden initially) -->
-                    <div id="file-info" class="hidden flex items-center justify-between p-3 bg-slate-800 rounded-xl border border-slate-700">
+                    <div id="file-info"
+                        class="hidden flex items-center justify-between p-3 bg-slate-800 rounded-xl border border-slate-700">
                         <div class="flex items-center gap-3 overflow-hidden">
                             <div class="w-10 h-10 rounded-lg bg-slate-700 overflow-hidden shrink-0">
                                 <img id="thumb-preview" src="" class="w-full h-full object-cover" alt="Thumb" />
@@ -88,15 +121,17 @@
                                 <p id="file-size" class="text-xs text-slate-500">0 KB</p>
                             </div>
                         </div>
-                        <button id="reset-btn" class="p-2 hover:bg-slate-700 rounded-lg text-slate-400 transition-colors">
+                        <button id="reset-btn"
+                            class="p-2 hover:bg-slate-700 rounded-lg text-slate-400 transition-colors">
                             <i data-lucide="refresh-ccw" class="w-4 h-4"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- 2. Settings (Hidden if no file) -->
-                <div id="settings-panel" class="space-y-6 transition-opacity duration-300 opacity-50 pointer-events-none">
-                    
+                <div id="settings-panel"
+                    class="space-y-6 transition-opacity duration-300 opacity-50 pointer-events-none">
+
                     <!-- Upscale Factor -->
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
@@ -104,9 +139,15 @@
                             <span id="scale-display" class="text-xs font-mono text-indigo-400">2x</span>
                         </div>
                         <div class="grid grid-cols-3 gap-2">
-                            <button onclick="setUpscale(1)" class="scale-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700" data-val="1">1x</button>
-                            <button onclick="setUpscale(2)" class="scale-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-indigo-500/20 text-indigo-300 border border-indigo-500/50 shadow-[0_0_15px_rgba(99,102,241,0.3)]" data-val="2">2x</button>
-                            <button onclick="setUpscale(4)" class="scale-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700" data-val="4">4x</button>
+                            <button onclick="setUpscale(1)"
+                                class="scale-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700"
+                                data-val="1">1x</button>
+                            <button onclick="setUpscale(2)"
+                                class="scale-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-indigo-500/20 text-indigo-300 border border-indigo-500/50 shadow-[0_0_15px_rgba(99,102,241,0.3)]"
+                                data-val="2">2x</button>
+                            <button onclick="setUpscale(4)"
+                                class="scale-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700"
+                                data-val="4">4x</button>
                         </div>
                     </div>
 
@@ -117,16 +158,25 @@
                             <span id="level-display" class="text-xs font-mono text-indigo-400 capitalize">Medium</span>
                         </div>
                         <div class="grid grid-cols-3 gap-2">
-                            <button onclick="setLevel('low')" class="level-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700" data-val="low">Low</button>
-                            <button onclick="setLevel('medium')" class="level-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-indigo-500/20 text-indigo-300 border border-indigo-500/50 shadow-[0_0_15px_rgba(99,102,241,0.3)]" data-val="medium">Med</button>
-                            <button onclick="setLevel('high')" class="level-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700" data-val="high">High</button>
+                            <button onclick="setLevel('low')"
+                                class="level-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700"
+                                data-val="low">Low</button>
+                            <button onclick="setLevel('medium')"
+                                class="level-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-indigo-500/20 text-indigo-300 border border-indigo-500/50 shadow-[0_0_15px_rgba(99,102,241,0.3)]"
+                                data-val="medium">Med</button>
+                            <button onclick="setLevel('high')"
+                                class="level-btn px-4 py-2 rounded-xl text-sm font-medium transition-all bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700"
+                                data-val="high">High</button>
                         </div>
                     </div>
 
                     <!-- Process Button -->
                     <div class="pt-4 border-t border-slate-800">
-                        <button id="enhance-btn" class="w-full relative overflow-hidden group flex items-center justify-center px-4 py-3 rounded-xl font-medium text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 shadow-lg shadow-indigo-500/30 border border-indigo-500/20 transition-all active:scale-95">
-                            <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+                        <button id="enhance-btn"
+                            class="w-full relative overflow-hidden group flex items-center justify-center px-4 py-3 rounded-xl font-medium text-white bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 shadow-lg shadow-indigo-500/30 border border-indigo-500/20 transition-all active:scale-95">
+                            <div
+                                class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20">
+                            </div>
                             <span class="relative flex items-center" id="enhance-btn-text">
                                 <i data-lucide="wand-2" class="mr-2 w-5 h-5"></i> Magic Enhance
                             </span>
@@ -136,16 +186,19 @@
                 </div>
 
                 <!-- 3. Download (Hidden initially) -->
-                <div id="download-section" class="mt-auto hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
-                    <a id="download-link" href="#" class="flex items-center justify-center w-full py-3 bg-slate-800 border border-slate-700 hover:bg-slate-700 hover:text-white text-slate-300 rounded-xl transition-all font-medium">
+                <div id="download-section"
+                    class="mt-auto hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
+                    <a id="download-link" href="#"
+                        class="flex items-center justify-center w-full py-3 bg-slate-800 border border-slate-700 hover:bg-slate-700 hover:text-white text-slate-300 rounded-xl transition-all font-medium">
                         <i data-lucide="download" class="mr-2 w-5 h-5"></i> Save Result
                     </a>
                 </div>
             </div>
 
             <!-- Right Panel: Viewport -->
-            <div id="viewport" class="flex-1 relative bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] flex items-center justify-center p-8 overflow-hidden select-none">
-                
+            <div id="viewport"
+                class="flex-1 relative bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] flex items-center justify-center p-8 overflow-hidden select-none">
+
                 <!-- Placeholder State -->
                 <div id="placeholder-state" class="text-center text-slate-600">
                     <i data-lucide="image" class="w-12 h-12 mx-auto mb-4 opacity-20"></i>
@@ -153,36 +206,45 @@
                 </div>
 
                 <!-- Image Container -->
-                <div id="image-container" class="hidden relative max-w-full max-h-full shadow-2xl rounded-lg overflow-hidden border border-slate-700/50 group cursor-ew-resize">
-                    
+                <div id="image-container"
+                    class="hidden relative max-w-full max-h-full shadow-2xl rounded-lg overflow-hidden border border-slate-700/50 group cursor-ew-resize">
+
                     <!-- Base Image (The "After" / Enhanced version) -->
                     <!-- Note: Initially this will show original, then enhanced after processing -->
-                    <img id="img-after" src="" alt="After" class="max-h-[70vh] w-auto block pointer-events-none select-none" draggable="false" />
+                    <img id="img-after" src="" alt="After"
+                        class="max-h-[70vh] w-auto block pointer-events-none select-none" draggable="false" />
 
                     <!-- Overlay Image (The "Before" / Original version) -->
-                    <div id="img-before-container" class="absolute inset-0 overflow-hidden pointer-events-none border-r-2 border-white/50 w-1/2">
-                        <img id="img-before" src="" alt="Before" class="max-h-[70vh] w-auto block max-w-none h-full" draggable="false" />
-                        
+                    <div id="img-before-container"
+                        class="absolute inset-0 overflow-hidden pointer-events-none border-r-2 border-white/50 w-1/2">
+                        <img id="img-before" src="" alt="Before" class="max-h-[70vh] w-auto block max-w-none h-full"
+                            draggable="false" />
+
                         <!-- Label -->
-                        <div class="absolute top-4 left-4 bg-black/50 text-white text-xs font-bold px-2 py-1 rounded backdrop-blur-md">
+                        <div
+                            class="absolute top-4 left-4 bg-black/50 text-white text-xs font-bold px-2 py-1 rounded backdrop-blur-md">
                             ORIGINAL
                         </div>
                     </div>
 
                     <!-- Enhanced Label -->
-                    <div id="enhanced-label" class="hidden absolute top-4 right-4 bg-indigo-600/80 text-white text-xs font-bold px-2 py-1 rounded backdrop-blur-md pointer-events-none">
+                    <div id="enhanced-label"
+                        class="hidden absolute top-4 right-4 bg-indigo-600/80 text-white text-xs font-bold px-2 py-1 rounded backdrop-blur-md pointer-events-none">
                         ENHANCED
                     </div>
 
                     <!-- Slider Handle -->
-                    <div id="slider-handle" class="absolute top-0 bottom-0 w-10 -ml-5 cursor-ew-resize flex items-center justify-center group-hover:opacity-100 transition-opacity left-1/2">
-                        <div class="w-8 h-8 rounded-full bg-white shadow-lg flex items-center justify-center text-indigo-600">
+                    <div id="slider-handle"
+                        class="absolute top-0 bottom-0 w-10 -ml-5 cursor-ew-resize flex items-center justify-center group-hover:opacity-100 transition-opacity left-1/2">
+                        <div
+                            class="w-8 h-8 rounded-full bg-white shadow-lg flex items-center justify-center text-indigo-600">
                             <i data-lucide="move-horizontal" class="w-4 h-4"></i>
                         </div>
                     </div>
 
                     <!-- Processing Overlay -->
-                    <div id="loading-overlay" class="hidden absolute inset-0 bg-slate-900/60 backdrop-blur-sm flex flex-col items-center justify-center z-50">
+                    <div id="loading-overlay"
+                        class="hidden absolute inset-0 bg-slate-900/60 backdrop-blur-sm flex flex-col items-center justify-center z-50">
                         <i data-lucide="zap" class="text-yellow-400 w-8 h-8 animate-bounce mb-4"></i>
                         <p class="text-white font-medium animate-pulse">Enhancing details...</p>
                     </div>
@@ -193,6 +255,78 @@
 
         <!-- Hidden Canvas for processing -->
         <canvas id="process-canvas" class="hidden"></canvas>
+
+        <div>
+            <h1> Magic Image Enhancer </h1>
+            <p>Do you have photos that look a little dull, grainy, or just aren't popping the way you want them to? Our
+                Magic Image Enhancer is designed to fix those common issues instantly. Transform your everyday snapshots
+                into clear, vibrant, high-quality images directly in your web browser without signing up.</p>
+            <p>
+                What is Magic Image Enhancer? <br>
+                The Magic Image Enhancer is a smart online tool that automatically improves the quality of your digital
+                photos. Using advanced artificial intelligence, it analyzes your image to balance brightness, correct
+                colors, and sharpen details while reducing unwanted grain or "noise." This tool is perfect for anyone
+                who wants professional-looking results without needing complex software or photo editing skills.
+                <br>
+                Whether you are trying to rescue a low-light photo taken on a mobile phone, clarify a slightly blurry
+                selfie for your profile picture, or brighten up product images for an online store, this tool handles
+                the hard work for you. It runs entirely in your browser, ensuring a fast and seamless experience.
+                <br>
+                How to use Magic Image Enhancer (Step by Step) <br>
+                Improving your photos is simple and only takes a few clicks. Follow these steps to get started:
+                <br>
+                Step 1: Click the Upload Image button and select the photo you want to improve from your device.
+                <br>
+                Step 2: Wait a few seconds while the system analyzes the image and applies its "magic" enhancements.
+                <br>
+                Step 3: If available, adjust the enhancement slider or choose a specific mode (like "Standard" or
+                "High") to suit your preference.
+                <br>
+                Step 4: Use the comparison view to toggle between the original and the enhanced version to see the
+                difference.
+                <br>
+                Step 5: Click the Download button to save your newly enhanced photo to your computer or phone.
+                <br>
+                Why this tool is useful <br>
+                Using the Magic Image Enhancer can make a significant difference in how your visual content is
+                perceived. For social media creators and students, this means your photos will look crisp and engaging
+                on platforms like Instagram or LinkedIn, helping you make a better impression. Clear, vibrant images are
+                more likely to catch the eye and get engagement than dark or blurry ones.
+                <br>
+                For ecommerce sellers and small business owners, image quality is crucial. This tool helps you quickly
+                polish product photos, making them look sharper and more trustworthy to potential buyers. Instead of
+                spending hours learning complicated desktop software or paying a professional editor, you can achieve
+                great results in seconds, completely free of charge. It saves you time and effort while ensuring your
+                visual content always looks its best.
+                <br>
+                FAQ: Magic Image Enhancer <br>
+                Q1. What file formats does the Magic Image Enhancer support? A1. The tool works with most common image
+                formats used on the web and mobile devices, such as JPG, JPEG, PNG, and WebP. You can upload almost any
+                standard photo file.
+                <br>
+                Q2. Do I need to install any software to use this? A2. No, you do not need to download or install
+                anything. The Magic Image Enhancer runs entirely online in your web browser, making it accessible from
+                your computer, tablet, or smartphone.
+                <br>
+                Q3. Is this tool suitable for beginners? A3. Absolutely. The interface is designed to be user-friendly
+                and requires no technical knowledge or editing skills. The automation handles the adjustments, so you
+                just need to upload and download.
+                <br>
+                Q4. How long does the enhancement process take? A4. The process is usually very fast. Depending on your
+                internet connection and the size of the image, the tool typically enhances your photo in just a few
+                seconds.
+                <br>
+                Q5. Will my image resolution be changed? A5. This tool focuses on clarity, color, and noise reduction.
+                While it enhances the look of the photo, if you specifically need to increase the dimensions (size) of a
+                small image, you might want to try our dedicated Image Upscaler tool.
+            </p>
+
+        </div>
+
+
+
+
+
 
     </div>
 
@@ -219,7 +353,7 @@
         const enhanceBtnText = document.getElementById('enhance-btn-text');
         const downloadSection = document.getElementById('download-section');
         const downloadLink = document.getElementById('download-link');
-        
+
         const viewport = document.getElementById('viewport');
         const placeholderState = document.getElementById('placeholder-state');
         const imageContainer = document.getElementById('image-container');
@@ -238,7 +372,7 @@
         fileInput.addEventListener('change', handleUpload);
         resetBtn.addEventListener('click', resetApp);
         enhanceBtn.addEventListener('click', handleEnhance);
-        
+
         // --- Slider Logic ---
         let isDragging = false;
 
@@ -253,14 +387,14 @@
             const x = clientX - rect.left;
             // Clamp percentage 0-100
             let percent = Math.max(0, Math.min(100, (x / rect.width) * 100));
-            
+
             imgBeforeContainer.style.width = `${percent}%`;
             sliderHandle.style.left = `${percent}%`;
         };
 
         window.addEventListener('mousemove', (e) => {
             if (isDragging) {
-                e.preventDefault(); 
+                e.preventDefault();
                 updateSlider(e.clientX);
             }
         });
@@ -291,22 +425,22 @@
             // UI Updates
             uploadBox.classList.add('hidden');
             fileInfo.classList.remove('hidden');
-            
+
             fileNameDisplay.textContent = file.name;
             fileSizeDisplay.textContent = Math.round(file.size / 1024) + ' KB';
             thumbPreview.src = url;
 
             // Enable Settings
             settingsPanel.classList.remove('opacity-50', 'pointer-events-none');
-            
+
             // Setup Viewport
             placeholderState.classList.add('hidden');
             imageContainer.classList.remove('hidden');
-            
+
             // Initial State: Show original in both slots, hide slider UI until processed
             imgAfter.src = url;
             imgBefore.src = url;
-            
+
             // Hide comparison tools initially
             imgBeforeContainer.style.width = '0%';
             sliderHandle.style.display = 'none';
@@ -323,7 +457,7 @@
             uploadBox.classList.remove('hidden');
             fileInfo.classList.add('hidden');
             settingsPanel.classList.add('opacity-50', 'pointer-events-none');
-            
+
             placeholderState.classList.remove('hidden');
             imageContainer.classList.add('hidden');
             downloadSection.classList.add('hidden');
@@ -334,7 +468,7 @@
         function setUpscale(val) {
             upscaleFactor = val;
             document.getElementById('scale-display').textContent = val + 'x';
-            
+
             // Update UI buttons
             document.querySelectorAll('.scale-btn').forEach(btn => {
                 const isSelected = parseInt(btn.dataset.val) === val;
@@ -345,7 +479,7 @@
         function setLevel(val) {
             enhanceLevel = val;
             document.getElementById('level-display').textContent = val;
-            
+
             // Update UI buttons
             document.querySelectorAll('.level-btn').forEach(btn => {
                 const isSelected = btn.dataset.val === val;
@@ -370,7 +504,7 @@
 
         async function handleEnhance() {
             if (!previewUrl || isProcessing) return;
-            
+
             isProcessing = true;
             loadingOverlay.classList.remove('hidden');
             enhanceBtnText.innerHTML = `<i data-lucide="loader-2" class="mr-2 w-5 h-5 animate-spin"></i> Processing...`;
@@ -381,24 +515,24 @@
 
             const img = new Image();
             img.src = previewUrl;
-            
+
             img.onerror = () => {
                 isProcessing = false;
                 loadingOverlay.classList.add('hidden');
                 enhanceBtnText.innerHTML = `<i data-lucide="wand-2" class="mr-2 w-5 h-5"></i> Magic Enhance`;
                 console.error("Failed to load image");
             };
-            
+
             img.onload = () => {
                 const ctx = canvas.getContext('2d');
-                
+
                 // 1. Calc Dimensions
                 const targetWidth = Math.round(img.width * upscaleFactor);
                 const targetHeight = Math.round(img.height * upscaleFactor);
-                
+
                 canvas.width = targetWidth;
                 canvas.height = targetHeight;
-                
+
                 // 2. Draw & Resize
                 ctx.imageSmoothingEnabled = true;
                 ctx.imageSmoothingQuality = 'high';
@@ -413,7 +547,7 @@
                 if (enhanceLevel === 'high') { sharpenStrength = 0.5; contrast = 20; saturation = 0.2; }
 
                 applyAdjustments(ctx, targetWidth, targetHeight, contrast, saturation);
-                
+
                 if (enhanceLevel !== 'low' || upscaleFactor > 1) {
                     applySharpen(ctx, targetWidth, targetHeight, sharpenStrength);
                 }
@@ -421,28 +555,28 @@
                 // 4. Output
                 canvas.toBlob((blob) => {
                     if (!blob) {
-                         console.error("Canvas toBlob returned null");
-                         isProcessing = false;
-                         loadingOverlay.classList.add('hidden');
-                         enhanceBtnText.innerHTML = `<i data-lucide="wand-2" class="mr-2 w-5 h-5"></i> Magic Enhance`;
-                         lucide.createIcons();
-                         return;
+                        console.error("Canvas toBlob returned null");
+                        isProcessing = false;
+                        loadingOverlay.classList.add('hidden');
+                        enhanceBtnText.innerHTML = `<i data-lucide="wand-2" class="mr-2 w-5 h-5"></i> Magic Enhance`;
+                        lucide.createIcons();
+                        return;
                     }
-                    
+
                     let newUrl;
                     try {
                         newUrl = URL.createObjectURL(blob);
                     } catch (err) {
                         console.error("Error creating blob URL:", err);
-                         isProcessing = false;
-                         loadingOverlay.classList.add('hidden');
-                         enhanceBtnText.innerHTML = `<i data-lucide="wand-2" class="mr-2 w-5 h-5"></i> Magic Enhance`;
-                         lucide.createIcons();
+                        isProcessing = false;
+                        loadingOverlay.classList.add('hidden');
+                        enhanceBtnText.innerHTML = `<i data-lucide="wand-2" class="mr-2 w-5 h-5"></i> Magic Enhance`;
+                        lucide.createIcons();
                         return;
                     }
 
                     processedUrl = newUrl;
-                    
+
                     // Update Viewport
                     imgAfter.src = newUrl;
                     // Reset slider to middle
@@ -476,13 +610,13 @@
                 for (let x = 1; x < w - 1; x++) {
                     const idx = (y * w + x) * 4;
                     for (let c = 0; c < 3; c++) {
-                        const val = 
+                        const val =
                             buffer[idx + c] * 5
-                            - buffer[((y-1) * w + x) * 4 + c]
-                            - buffer[((y+1) * w + x) * 4 + c]
-                            - buffer[(y * w + (x-1)) * 4 + c]
-                            - buffer[(y * w + (x+1)) * 4 + c];
-                        
+                            - buffer[((y - 1) * w + x) * 4 + c]
+                            - buffer[((y + 1) * w + x) * 4 + c]
+                            - buffer[(y * w + (x - 1)) * 4 + c]
+                            - buffer[(y * w + (x + 1)) * 4 + c];
+
                         data[idx + c] = (1 - mix) * buffer[idx + c] + mix * val;
                     }
                 }
@@ -498,19 +632,19 @@
             for (let i = 0; i < data.length; i += 4) {
                 // Contrast
                 data[i] = factor * (data[i] - 128) + 128;
-                data[i+1] = factor * (data[i+1] - 128) + 128;
-                data[i+2] = factor * (data[i+2] - 128) + 128;
+                data[i + 1] = factor * (data[i + 1] - 128) + 128;
+                data[i + 2] = factor * (data[i + 2] - 128) + 128;
 
                 // Saturation
-                const gray = 0.2989 * data[i] + 0.5870 * data[i+1] + 0.1140 * data[i+2];
+                const gray = 0.2989 * data[i] + 0.5870 * data[i + 1] + 0.1140 * data[i + 2];
                 data[i] = -gray * saturation + data[i] * (1 + saturation);
-                data[i+1] = -gray * saturation + data[i+1] * (1 + saturation);
-                data[i+2] = -gray * saturation + data[i+2] * (1 + saturation);
+                data[i + 1] = -gray * saturation + data[i + 1] * (1 + saturation);
+                data[i + 2] = -gray * saturation + data[i + 2] * (1 + saturation);
             }
             ctx.putImageData(imageData, 0, 0);
         }
 
     </script>
 </body>
-</html>
 
+</html>
